@@ -1,4 +1,4 @@
-const uuid = require('uuid/v1');
+const uuid = require('uuid');
 const Product = require('../models/Product');
 
 exports.getAllProducts = (req, res, next) => {
@@ -48,12 +48,12 @@ exports.getOneProduct = (req, res, next) => {
  */
 exports.orderProducts = (req, res, next) => {
   if (!req.body.contact ||
-      !req.body.contact.firstName ||
-      !req.body.contact.lastName ||
-      !req.body.contact.address ||
-      !req.body.contact.city ||
-      !req.body.contact.email ||
-      !req.body.products) {
+    !req.body.contact.firstName ||
+    !req.body.contact.lastName ||
+    !req.body.contact.address ||
+    !req.body.contact.city ||
+    !req.body.contact.email ||
+    !req.body.products) {
     return res.status(400).send(new Error('Bad request!'));
   }
   let queries = [];
